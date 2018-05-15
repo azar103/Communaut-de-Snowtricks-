@@ -1,0 +1,4 @@
+services:
+#    ocst.example:
+#        class: OC\STBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

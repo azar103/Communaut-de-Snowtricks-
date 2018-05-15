@@ -1,0 +1,31 @@
+ocst_homepage:
+    path:     /
+    defaults: { _controller: OCSTBundle:Trick:index }
+
+
+ocst_trick_add:
+   path: /trick/add
+   defaults: { _controller: OCSTBundle:Trick:add }
+
+ocst_trick_edit:
+   path: /trick/edit/{id}
+   defaults: { _controller: OCSTBundle:Trick:edit }  
+   requirements:
+         id: \d+
+
+ocst_trick_delete:
+   path: /trick/delete/{id}
+   defaults: { _controller: OCSTBundle:Trick:delete }  
+   requirements:
+         id: \d+  
+
+ocst_trick_view:
+   path: /trick/{id}
+   defaults: { _controller: OCSTBundle:Trick:view }  
+   requirements:
+         id: \d+
+
+
+ocst_trick_contact:
+   path: /contact
+   defaults: { _controller: OCSTBundle:Trick:contact }  

@@ -1,0 +1,11 @@
+{% extends "OCSTBundle::layout.html.twig "%}
+
+
+{% block nav %}
+   <li><a href="{{ path('ocst_homepage') }}"><span class="glyphicon glyphicon-share-alt"></span> Retour à l'accueil </a></li>
+{% endblock %}
+
+{% block body %}
+    {{include("OCSTBundle:Trick:form.html.twig")}}
+{% endblock %}
+

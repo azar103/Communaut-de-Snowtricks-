@@ -1,0 +1,47 @@
+{% extends "OCSTBundle::layout.html.twig "%}
+
+{% block nav %}
+     <li class="active"><a href="#p1"><span class="glyphicon glyphicon-home"></span> Présentation</a></li>
+      <li><a href="#tricks"><span class="glyphicon glyphicon-sunglasses"></span> Les Tricks</a></li>
+      <li><a href="#addTrick"><span class="glyphicon glyphicon-tree-conifer"></span> Ajouter un Trick ?</a></li>
+      <li><a href="{{path('ocst_trick_contact')}}"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
+{% endblock %}
+
+{% block body %}
+    <div class="well" id="p1">
+    <h1 class="text-center">Bienvenue sur SNOWTRICKMANIA.COM</h1>
+    <hr>
+    <div class="row">
+    
+    <h3 class="text-center">SnowTrickMania est consacré à l'art du Snowboard et ses Tricks aussi bien pour les passionnés que les néophytes dans le domaine.</h3>
+
+    <div class="col-md-12 text-center"> 	
+    <a href="#" class="btn btn-primary  text-center btn-lg btn-success" >Voir les Tricks</a>
+    </div> 
+
+    </div>
+</div>
+
+<div class="well ">
+	{% for message in app.session.flashbag.get('info') %}
+        <p class="text-center text-primary"> message: {{message}}</p>
+	{% endfor %}
+</div>
+<p style="margin-top:84px;">
+<h3 class="text-center" >Voici la liste des Tricks entretenues par la communautée</h3>
+<hr>
+</p>
+
+<section id="addTrick" class="container-fluid" >
+	<div class="row" style="margin-bottom:95px;">
+    
+    <h3 class="text-center">Vous désirez ajouter un Trick?</h3>
+
+    <div class="col-md-12 text-center"> 	
+    <a href="{{path('ocst_trick_add')}}" class="btn btn-primary  text-center btn-lg btn-warning" >ajouter un Trick !</a>
+    </div> 
+
+    </div>
+</section>
+{% endblock %}
+
