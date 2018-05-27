@@ -1,6 +1,9 @@
 ocst_homepage:
-    path:     /
-    defaults: { _controller: OCSTBundle:Trick:index }
+    path:     /{page}
+    defaults:
+         _controller: OCSTBundle:Trick:index
+         page: 1
+     
 
 
 ocst_trick_add:
@@ -29,3 +32,13 @@ ocst_trick_view:
 ocst_trick_contact:
    path: /contact
    defaults: { _controller: OCSTBundle:Trick:contact }  
+
+
+ocst_trick_category:
+   path: /cat/{category}/{page}
+   defaults:  
+         _controller: OCSTBundle:Trick:trickCategory 
+         page: 1
+   requirements:
+         page: \d*        
+  

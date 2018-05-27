@@ -1,6 +1,7 @@
 <?php
 
 namespace OC\STBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -43,7 +44,7 @@ class Trick
     private $date;
 
    /**
-    *@ORM\OneToOne(targetEntity="OC\STBundle\Entity\Image", cascade = {"persist"})
+    *@ORM\OneToOne(targetEntity="OC\STBundle\Entity\Image", cascade = {"persist", "remove"})
     *@ORM\JoinColumn(nullable=false)
     */
    private $image;
@@ -52,17 +53,25 @@ class Trick
     *@ORM\ManyToMany(targetEntity="OC\STBundle\Entity\Category")
     */
     private $categories;
-    /**
-     * Get id
-     *
-     * @return int
-     */
+  
+   /**
+    *@ORM\OneToOne(targetEntity="OC\STBundle\Entity\Video", cascade= {"persist"})
+    **@ORM\JoinColumn(nullable=false)
+    */
+   private $video;
+   
+   private $singleCategory;
 
     public function __construct()
     {
         $this->date = new \DateTime();
         $this->categories = new  ArrayCollection();
     }
+    /**
+     * Get id
+     *
+     * @return int
+     */ 
     public function getId()
     {
         return $this->id;
@@ -198,4 +207,48 @@ class Trick
     {
         return $this->categories;
     }
+
+    /**
+     * Set video.
+     *
+     * @param \OC\STBundle\Entity\Video|null $video
+     *
+     * @return Trick
+     */
+    public function setVideo(\OC\STBundle\Entity\Video $video = null)
+    {
+        $this->video = $video;
+
+        return $this;
+    }
+
+    /**
+     * Get video.
+     *
+     * @return \OC\STBundle\Entity\Video|null
+     */
+    public function getVideo()
+    {
+        return $this->video;
+    }
+
+    public function setSingleCategory(Category $category = null)
+    {
+    // When binding invalid data, this may be null
+    // But it'll be caught later by the constraint set up in the form builder
+    // So that's okay!
+    if (!$category) {
+        return;
+    }
+
+    $this->categories->add($category);
+   }
+
+   public function getSingleCategory()
+   {
+    return $this->categories->first();
+   }
+
+
+
 }

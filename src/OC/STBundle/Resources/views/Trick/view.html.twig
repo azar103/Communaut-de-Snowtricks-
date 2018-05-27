@@ -1,0 +1,37 @@
+{% extends "OCSTBundle::layout.html.twig "%}
+
+
+{% block nav %}
+   <li><a href="{{ path('ocst_homepage') }}"><span class="glyphicon glyphicon-share-alt"></span> Retour à l'accueil </a></li>
+{% endblock %}
+
+{% block body %}
+<h1 class="text-center">{{trick.name}}</h1>
+<section class="bg-primary" id="trick">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <a class="btn btn-primary btn-xl page-scroll" href="#page-top"><span class="glyphicon glyphicon-triangle-top"></span></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <div class="col-xs-offset-1 col-xs-10 trick-description" id="trick">
+                        {{trick.description}}<p>&nbsp;</p> <p><img src="{{ asset(trick.image.webPath) }}" alt="{{ trick.image.alt }}" width="600" height="446" /></p> <p>&nbsp;</p> <p>Voici une vid&eacute;o explicative :</p> <p>&nbsp;</p> <p><iframe src="{{trick.video.url}}" width="600" height="360" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
+                    </div
+                </div>
+            </div>
+        </div>
+</section>
+<div class="well">
+<h3 >Commentaires</h3>
+
+{% for comment in listComments %}
+<p>
+    <b> écrit le  {{comment.date|date('d/m/Y') }} à {{comment.date|date('h:m:s')}}</b> <br>
+    {{comment.message}}
+</p>    
+{% endfor %}
+</div>
+{% endblock %}
+

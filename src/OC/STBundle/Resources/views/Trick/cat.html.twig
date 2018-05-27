@@ -5,6 +5,7 @@
       <li><a href="#tricks"><span class="glyphicon glyphicon-sunglasses"></span> Les Tricks</a></li>
       <li><a href="#addTrick"><span class="glyphicon glyphicon-tree-conifer"></span> Ajouter un Trick ?</a></li>
       <li><a href="{{path('ocst_trick_contact')}}"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
+        <li><a href="{{ path('ocst_homepage') }}"><span class="glyphicon glyphicon-share-alt"></span> Retour à l'accueil </a></li>
 {% endblock %}
 
 {% block body %}
@@ -23,12 +24,6 @@
 </div>
 
 
-
-<div class="well ">
-	{% for message in app.session.flashbag.get('info') %}
-        <p class="text-center text-primary">  {{message}}</p>
-	{% endfor %}
-</div>
 <h3 class="text-center">Choissiez une catégorie </h3>
 <ul class="list-inline text-center">
   {% for category in listCategories %}
@@ -36,20 +31,19 @@
 
   {% endfor %}
 </ul>
-
 <p style="margin-top:84px;">
-<h3 class="text-center" >Voici la liste de tout les Tricks entretenues par la communautée</h3>
+<h3 class="text-center" >Voici la liste des Tricks entretenues par la communautée dans la categorie : {{cat}}</h3>
 <hr>
 </p>
 
  <section id="tricks">
  <div class="row">
-  {% for trick in listTricks %}
+  {% for trick in listTricksByCat %}
   <div class="col-md-4">
     <div class="thumbnail">
       <a href="{{path('ocst_trick_view', {'id':trick.id})}}">
 
-        <img src="{{ asset(trick.image.webPath) }}" alt="{{trick.image.alt}}" style="width:100%">
+        <img src="{{ asset(trick.image.webPath) }}" alt="{{ trick.image.alt }}" style="width:100%">
         <div class="caption text-center">
           <p>{{trick.name}}</p>
         </div>
@@ -76,6 +70,7 @@
   
 </div>
 </section>
+
  <div class="text-center">
  <ul class="pagination">
   {# On utilise la fonction range(a, b) qui crée un tableau de valeurs entre a et b #}
@@ -86,16 +81,7 @@
   {% endfor %}
 </ul>
 </div>
-<section id="addTrick" class="container-fluid" >
-	<div class="row" style="margin-bottom:95px;">
-    
-    <h3 class="text-center">Vous désirez ajouter un Trick?</h3>
 
-    <div class="col-md-12 text-center"> 	
-    <a href="{{path('ocst_trick_add')}}" class="btn btn-primary  text-center btn-lg btn-warning" >ajouter un Trick !</a>
-    </div> 
 
-    </div>
-</section>
 {% endblock %}
 

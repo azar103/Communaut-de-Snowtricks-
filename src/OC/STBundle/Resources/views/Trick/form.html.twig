@@ -1,5 +1,21 @@
 <div class="container">
 <div class="well">
-	formulaire 
-</div>
+	{{ form_start(form) }}
+	{{ form_errors(form) }}
+	{{form_row(form.name , {'label' : 'Nom du Trick'})}}
+	{{form_row(form.description , {'label' : 'Description du trick'})}}
+	{{form_row(form.singleCategory, {'label' : 'Category du trick'})}}
+	{{form_row(form.image, {'label' : 'Image du trick'} )}}
+	{{form_row(form.video, {'label' :  'Video du trick' })}}
+
+	{{form_row
+		(form.save ,{'attr':{'class':'btn btn-primary btn-lg center-block'}, 
+	                 'label':'Enregistrer'} 
+	           )}}
+		  
+	{{ form_rest(form) }}
+	{{ form_end(form) }}
+
+    </div> 
+	
 </div>

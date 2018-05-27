@@ -1,6 +1,7 @@
 <?php
 
 namespace OC\STBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -49,14 +50,25 @@ class Trick
    private $image;
 
    /**
-    *@ORM\ManyToMany(targetEntity="OC\STBundle\Entity\Category", mappedBy="trick")
+    *@ORM\ManyToMany(targetEntity="OC\STBundle\Entity\Category")
     */
-   private $categories;
+    private $categories;
+  
+   /**
+    *@ORM\OneToOne(targetEntity="OC\STBundle\Entity\Video", cascade= {"persist"})
+    **@ORM\JoinColumn(nullable=false)
+    */
+   private $video;
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+        $this->categories = new  ArrayCollection();
+    }
     /**
      * Get id
      *
      * @return int
-     */
+     */ 
     public function getId()
     {
         return $this->id;
@@ -156,5 +168,64 @@ class Trick
     public function getImage()
     {
         return $this->image;
+    }
+
+ 
+    /**
+     * Add category
+     *
+     * @param \OC\STBundle\Entity\Category $category
+     *
+     * @return Trick
+     */
+    public function addCategory(Category $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \OC\STBundle\Entity\Category $category
+     */
+    public function removeCategory(Category $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    /**
+     * Set video.
+     *
+     * @param \OC\STBundle\Entity\Video|null $video
+     *
+     * @return Trick
+     */
+    public function setVideo(\OC\STBundle\Entity\Video $video = null)
+    {
+        $this->video = $video;
+
+        return $this;
+    }
+
+    /**
+     * Get video.
+     *
+     * @return \OC\STBundle\Entity\Video|null
+     */
+    public function getVideo()
+    {
+        return $this->video;
     }
 }

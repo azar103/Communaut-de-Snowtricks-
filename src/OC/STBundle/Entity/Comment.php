@@ -34,6 +34,8 @@ class Comment
      * @ORM\Column(name="message", type="string", length=255)
      */
     private $message;
+
+ 
     
     /**
      *@ORM\ManyToOne(targetEntity="OC\STBundle\Entity\Trick")
