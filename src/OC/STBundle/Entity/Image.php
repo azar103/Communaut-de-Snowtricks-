@@ -27,6 +27,8 @@ class Image
      * @var string
      *
      * @ORM\Column(name="url", type="string", length=255)
+     * @Assert\Length(max=255)
+     * @Assert\Url()
      */
     private $url;
 
@@ -38,7 +40,9 @@ class Image
     private $alt;
 
     private $tempFilename;
-
+    /**
+     *@Assert\File() 
+     */
     private $file;
     /**
      * Get id

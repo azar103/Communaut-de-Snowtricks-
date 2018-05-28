@@ -3,7 +3,7 @@
 namespace OC\STBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Video
  *
@@ -25,6 +25,8 @@ class Video
      * @var string
      *
      * @ORM\Column(name="url", type="string", length=255)
+     * @Assert\Length(max=255)
+     * @Assert\Url(message="l'url n'est pas valide") 
      */
     private $url;
     

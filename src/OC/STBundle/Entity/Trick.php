@@ -2,14 +2,17 @@
 
 namespace OC\STBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
-
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 /**
  * Trick
  *
  * @ORM\Table(name="trick")
  * @ORM\Entity(repositoryClass="OC\STBundle\Repository\TrickRepository")
+ * @UniqueEntity(fields = "name", message="Un Trick existe déja avec ce nom")
  */
 class Trick
 {
@@ -26,6 +29,8 @@ class Trick
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
+     * @Assert\Length(min="3" , minMessage="le nom du trick doit etre composé au moins de  3 cararctères")
+     * @Assert\NotBlank()
      */
     private $name;
 
@@ -33,6 +38,8 @@ class Trick
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=255)
+     * @Assert\Length(min = 10, minMessage= "la longeur de description doit etre au moins de 10 caractère")
+     * @Assert\NotBlank()
      */
     private $description;
 
@@ -40,23 +47,27 @@ class Trick
      * @var \DateTime
      *
      * @ORM\Column(name="date", type="datetime")
+     * @Assert\DateTime()
      */
     private $date;
 
    /**
     *@ORM\OneToOne(targetEntity="OC\STBundle\Entity\Image", cascade = {"persist", "remove"})
     *@ORM\JoinColumn(nullable=false)
+    *@Assert\Valid()
     */
    private $image;
 
    /**
     *@ORM\ManyToMany(targetEntity="OC\STBundle\Entity\Category")
+    *@Assert\Valid()
     */
     private $categories;
   
    /**
     *@ORM\OneToOne(targetEntity="OC\STBundle\Entity\Video", cascade= {"persist"})
-    **@ORM\JoinColumn(nullable=false)
+    *@ORM\JoinColumn(nullable=false)
+    *@Assert\Valid()
     */
    private $video;
    
