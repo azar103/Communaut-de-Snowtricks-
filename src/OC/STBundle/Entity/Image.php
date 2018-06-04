@@ -27,8 +27,6 @@ class Image
      * @var string
      *
      * @ORM\Column(name="url", type="string", length=255)
-     * @Assert\Length(max=255)
-     * @Assert\Url()
      */
     private $url;
 
@@ -41,7 +39,7 @@ class Image
 
     private $tempFilename;
     /**
-     *@Assert\File() 
+     *@Assert\Image(maxSize=1000000, maxWidth=640,minWidth=640, maxHeight= 480, minHeight= 480)
      */
     private $file;
     /**

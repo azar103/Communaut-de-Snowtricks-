@@ -1,8 +1,11 @@
-{% extends "OCSTBundle::layout.html.twig "%}
+{% extends "OCSTBundle:Trick:layout.html.twig "%}
 
 
-{% block nav %}
+{% block navbis %}
+   
    <li><a href="{{ path('ocst_homepage') }}"><span class="glyphicon glyphicon-share-alt"></span> Retour à l'accueil </a></li>
+   <li><a href="#"><span class="glyphicon glyphicon-user"></span> Bonjour, {{app.user.username}}</a></li>
+    <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-off"></span> Déconnexion</a></li>
 {% endblock %}
 
 {% block body %}

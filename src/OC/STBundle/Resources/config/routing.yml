@@ -3,8 +3,9 @@ ocst_homepage:
     defaults:
          _controller: OCSTBundle:Trick:index
          page: 1
+    requirements:
+         id: \d*     
      
-
 
 ocst_trick_add:
    path: /trick/add
@@ -23,10 +24,13 @@ ocst_trick_delete:
          id: \d+  
 
 ocst_trick_view:
-   path: /trick/{id}
-   defaults: { _controller: OCSTBundle:Trick:view }  
+   path: /trick/{id}/{page}
+   defaults:  
+          _controller: OCSTBundle:Trick:view 
+          page: 1  
    requirements:
          id: \d+
+         page: \d*
 
 
 ocst_trick_contact:
@@ -40,5 +44,11 @@ ocst_trick_category:
          _controller: OCSTBundle:Trick:trickCategory 
          page: 1
    requirements:
-         page: \d*        
+         page: \d*    
+
+
+
+
+
+
   

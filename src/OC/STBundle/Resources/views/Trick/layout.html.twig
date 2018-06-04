@@ -1,0 +1,14 @@
+{% extends 'OCSTBundle::layout.html.twig'%}
+
+{% block nav %}
+ {% block navbis %}
+       {% endblock %}
+           {% if is_granted('IS_AUTHENTICATED_REMEMBERED')  %}
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Bonjour, {{app.user.username}}</a></li>
+      <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-off"></span> Déconnexion</a></li>
+      {% else %} 
+       <li><a href="{{ path('fos_user_security_login') }}"><span class="glyphicon glyphicon-off"></span> Connexion</a></li>     
+      {% endif %}
+         <li><a href="{{path('ocst_trick_contact')}}"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
+
+{% endblock %}

@@ -13,6 +13,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Table(name="trick")
  * @ORM\Entity(repositoryClass="OC\STBundle\Repository\TrickRepository")
  * @UniqueEntity(fields = "name", message="Un Trick existe déja avec ce nom")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Trick
 {
@@ -72,6 +73,10 @@ class Trick
    private $video;
    
    private $singleCategory;
+   /**
+    *@ORM\Column(name="update_at", type="datetime", nullable=true)
+    */
+   private $updated_at;
 
     public function __construct()
     {
@@ -261,5 +266,37 @@ class Trick
    }
 
 
+
+
+    /**
+     * Set updatedAt.
+     *
+     * @param \DateTime|null $updatedAt
+     *
+     * @return Trick
+     */
+    public function setUpdatedAt($updatedAt = null)
+    {
+        $this->updated_at = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updatedAt.
+     *
+     * @return \DateTime|null
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+    /**
+     *@ORM\PreUpdate
+     */
+    public function updateDate()
+    {
+        $this->setUpdatedAt(new \DateTime());
+    }
 
 }

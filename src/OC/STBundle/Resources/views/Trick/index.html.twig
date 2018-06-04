@@ -1,10 +1,10 @@
-{% extends "OCSTBundle::layout.html.twig "%}
+{% extends "OCSTBundle:Trick:layout.html.twig "%}
 
-{% block nav %}
+{% block navbis %}
      <li class="active"><a href="#p1"><span class="glyphicon glyphicon-home"></span> Présentation</a></li>
       <li><a href="#tricks"><span class="glyphicon glyphicon-sunglasses"></span> Les Tricks</a></li>
       <li><a href="#addTrick"><span class="glyphicon glyphicon-tree-conifer"></span> Ajouter un Trick ?</a></li>
-      <li><a href="{{path('ocst_trick_contact')}}"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
+     
 {% endblock %}
 
 {% block body %}
@@ -57,6 +57,7 @@
 
          <br/>
          <br/>
+         {% if is_granted('ROLE_USER') %}
          <a href="{{path('ocst_trick_edit', {'id':trick.id})}}">
          <span class="glyphicon glyphicon-pencil"></span>
          </a>
@@ -64,8 +65,9 @@
                                        &nbsp;&nbsp;
                                        
          <a href="{{path('ocst_trick_delete', {'id':trick.id})}}">
-         <span class="glyphicon glyphicon-trash" />
+         <span class="glyphicon glyphicon-trash" ></span>
         </a>
+        {% endif %}
             
         </div>
       </a>
@@ -92,7 +94,11 @@
     <h3 class="text-center">Vous désirez ajouter un Trick?</h3>
 
     <div class="col-md-12 text-center"> 	
+    {% if is_granted('ROLE_USER') %} 
     <a href="{{path('ocst_trick_add')}}" class="btn btn-primary  text-center btn-lg btn-warning" >ajouter un Trick !</a>
+    {% else %}
+    <a href="{{path('fos_user_security_login')}}" class="btn btn-primary  text-center btn-lg btn-success" >Pour cela merci de s'authentifier</a>
+    {% endif %}
     </div> 
 
     </div>

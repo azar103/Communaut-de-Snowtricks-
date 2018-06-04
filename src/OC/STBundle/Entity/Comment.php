@@ -128,4 +128,5 @@ class Comment
     {
         return $this->trick;
     }
+
 }

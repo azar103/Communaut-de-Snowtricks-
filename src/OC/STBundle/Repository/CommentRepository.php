@@ -1,7 +1,8 @@
 <?php
 
 namespace OC\STBundle\Repository;
-
+use Doctrine\ORM\QueryBuilder;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 /**
  * CommentRepository
  *
@@ -10,4 +11,20 @@ namespace OC\STBundle\Repository;
  */
 class CommentRepository extends \Doctrine\ORM\EntityRepository
 {
+
+	public function getComments($page, $nbPerPages, $id)
+	{
+		$query = $this->createQueryBuilder('c')
+		              ->leftJoin('c.trick','t')
+		              ->addSelect('t')
+		              ->where('t.id = :id')
+		              ->setParameter('id',$id)
+		              ->orderBy('c.date','DESC')
+		              ->getQuery()
+		              ;
+        $query->setFirstResult(($page - 1)* $nbPerPages)
+               ->setMaxResults($nbPerPages); 
+
+        return new Paginator($query, true);      
+	}
 }

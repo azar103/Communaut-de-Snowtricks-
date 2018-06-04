@@ -8,8 +8,10 @@ use OC\STBundle\Entity\Comment;
 
 use OC\STBundle\Entity\Video;
 use OC\STBundle\Form\TrickType;
+use OC\STBundle\Form\CommentType;
 use OC\STBundle\Form\TrickEditType;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class TrickController extends Controller
 
@@ -41,7 +43,9 @@ class TrickController extends Controller
 		$session = $request->getSession()->getFlashBag()->add('info',"la page de contact n'est pas encore disponible veuillez ressayer plus tard !");
 		return $this->redirectToRoute('ocst_homepage');
 	}
-
+  /**
+   *@Security("has_role('ROLE_USER')")
+   */ 
 	public function addAction(Request $request)
 	{
 		$trick = new Trick();
@@ -60,7 +64,9 @@ class TrickController extends Controller
 			 ) );
 
 	}
-
+ /**
+   *@Security("has_role('ROLE_USER')")
+   */ 
 	public function editAction($id, Request $request)
 	{
 		
@@ -85,15 +91,35 @@ class TrickController extends Controller
 
 	}
 
-	public function viewAction($id)
+	public function viewAction($id, $page, Request $request)
 	{
       $em = $this->getDoctrine()->getManager();
       $trick = $em->getRepository('OCSTBundle:Trick')->find($id);
-      $listComments = $em->getRepository('OCSTBundle:Comment')->findBy(array('trick'=>$trick)); 
-      return $this->render('OCSTBundle:Trick:view.html.twig', array('trick'=>$trick, 
-      	                                                             'listComments'=>$listComments));
-	}
+      $comment = new Comment();
+      $form = $this->createForm(CommentType::class, $comment); 
+      if($request->isMethod('POST') && $form->handleRequest($request)->isValid())
+      {
+         $comment->setTrick($trick);
+         $em->persist($trick);
+         $em->persist($comment);
+         $em->flush();
+          $request->getSession()->getflashbag()->add('info','votre commentaire est enregistré');
+          return $this->redirect($this->generateUrl('ocst_trick_view', array('id' => $trick->getId(), 'page' => $page)) .'#coms');
+      }  
+      $nbPerPage = 10;
 
+      $listComments = $em->getRepository('OCSTBundle:Comment')->getComments($page, $nbPerPage, $id); 
+      $nbPages = ceil(count($listComments)/$nbPerPage);
+
+      return $this->render('OCSTBundle:Trick:view.html.twig', array('trick'=>$trick, 
+      	                                                             'listComments'=>$listComments,
+                                                                     'form' => $form->createView(),
+                                                                      'page' =>$page,
+                                                                      'nbPages'=>$nbPages));
+	}
+ /**
+   *@Security("has_role('ROLE_USER')")
+   */ 
 	public function deleteAction(Request $request,$id)
 	{
        $em = $this->getDoctrine()->getManager();
