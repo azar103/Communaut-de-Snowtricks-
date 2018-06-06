@@ -1,16 +1,9 @@
 {% extends "OCSTBundle:Trick:layout.html.twig "%}
 
 
-{% block navbis %}
-   
-   <li><a href="{{ path('ocst_homepage') }}"><span class="glyphicon glyphicon-share-alt"></span> Retour à l'accueil </a></li>
-   <li><a href="#"><span class="glyphicon glyphicon-user"></span> Bonjour, {{app.user.username}}</a></li>
-    <li><a href="{{ path('fos_user_security_logout') }}"><span class="glyphicon glyphicon-off"></span> Déconnexion</a></li>
-{% endblock %}
-
 {% block body %}
     <div class="header-content-inner">
-            <div class="col-xs-12 tricktitle" ><h3 class="text-center">Ajouter un Trick</h3>
+            <div class="col-xs-12 tricktitle" ><h3 class="text-center">{{"Ajouter un Trick" |trans}}</h3>
       </div>
     {{include("OCSTBundle:Trick:form.html.twig")}}
 </div>

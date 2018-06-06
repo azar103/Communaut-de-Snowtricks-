@@ -1,8 +1,8 @@
 {% extends "OCSTBundle::layout.html.twig "%}
 
 {% block nav %}
-     <li class="active"><a href="#p1"><span class="glyphicon glyphicon-home"></span> Présentation</a></li>
-      <li><a href="#tricks"><span class="glyphicon glyphicon-sunglasses"></span> Les Tricks</a></li>
+     <li class="active"><a href="#p1"><span class="glyphicon glyphicon-home"></span> {{"Présentation"|trans}}</a></li>
+      <li><a href="#tricks"><span class="glyphicon glyphicon-sunglasses"></span> {{"Les Tricks"|trans}}</a></li>
       <li><a href="#addTrick"><span class="glyphicon glyphicon-tree-conifer"></span> Ajouter un Trick ?</a></li>
       <li><a href="{{path('ocst_trick_contact')}}"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
         <li><a href="{{ path('ocst_homepage') }}"><span class="glyphicon glyphicon-share-alt"></span> Retour à l'accueil </a></li>
