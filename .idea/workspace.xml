@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="27671ae7-45e3-42ae-b63e-0bda1e66d764" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/OC/STBundle/Resources/views/Category/categories.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/OC/STBundle/Resources/views/Category/edit.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/OC/STBundle/Resources/views/Category/form.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/services.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/services.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OC/STBundle/Controller/TrickController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/STBundle/Controller/TrickController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OC/STBundle/Entity/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/STBundle/Entity/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OC/STBundle/Form/CategoryType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/STBundle/Form/CategoryType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OC/STBundle/Form/ProfileFormType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/STBundle/Form/ProfileFormType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/OC/STBundle/Controller/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/STBundle/Controller/CategoryController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/OC/STBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/STBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OC/STBundle/Resources/views/Trick/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/STBundle/Resources/views/Trick/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OC/STBundle/Resources/views/Trick/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/STBundle/Resources/views/Trick/layout.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OC/STBundle/Resources/views/Trick/view.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/STBundle/Resources/views/Trick/view.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OC/STBundle/Resources/views/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/OC/STBundle/Resources/views/layout.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -58,11 +45,32 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="form.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="form.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/OC/STBundle/Resources/views/Category/form.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
               <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/OC/STBundle/Resources/config/routing.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="428">
+              <caret line="66" column="53" selection-start-line="66" selection-start-column="53" selection-end-line="66" selection-end-column="53" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoryController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/OC/STBundle/Controller/CategoryController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="415">
+              <caret line="52" column="32" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
+              <folding>
+                <element signature="e#40#97#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,24 +89,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
               <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OC/STBundle/Resources/views/Trick/layout.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OC/STBundle/Resources/views/layout.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
             </state>
           </provider>
         </entry>
@@ -124,12 +114,12 @@
         <option value="$PROJECT_DIR$/src/OC/STBundle/Controller/TrickController.php" />
         <option value="$PROJECT_DIR$/src/OC/STBundle/Resources/views/Trick/index.html.twig" />
         <option value="$PROJECT_DIR$/src/OC/STBundle/Resources/views/Category/form.html.twig" />
-        <option value="$PROJECT_DIR$/src/OC/STBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/OC/STBundle/Controller/CategoryController.php" />
         <option value="$PROJECT_DIR$/src/OC/STBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/src/OC/STBundle/Resources/views/Category/add.html.twig" />
         <option value="$PROJECT_DIR$/src/OC/STBundle/Resources/views/Category/categories.html.twig" />
         <option value="$PROJECT_DIR$/src/OC/STBundle/Resources/views/Category/edit.html.twig" />
+        <option value="$PROJECT_DIR$/src/OC/STBundle/Resources/config/routing.yml" />
+        <option value="$PROJECT_DIR$/src/OC/STBundle/Controller/CategoryController.php" />
       </list>
     </option>
   </component>
@@ -187,7 +177,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -330,15 +320,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1528449944429</updated>
-      <workItem from="1528449973806" duration="18319000" />
+      <workItem from="1528449973806" duration="18661000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18319000" />
+    <option name="totallyTimeSpent" value="18661000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24963397" />
@@ -451,23 +441,6 @@
     <entry file="file://$PROJECT_DIR$/src/OC/STBundle/Resources/config/services.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/STBundle/Controller/CategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="58" column="58" selection-start-line="58" selection-start-column="58" selection-end-line="58" selection-end-column="58" />
-          <folding>
-            <element signature="e#40#97#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/OC/STBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="63" column="17" selection-start-line="63" selection-end-line="63" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/OC/STBundle/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -527,6 +500,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="43" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/STBundle/Resources/config/routing.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="66" column="53" selection-start-line="66" selection-start-column="53" selection-end-line="66" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OC/STBundle/Controller/CategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="52" column="32" selection-start-line="52" selection-start-column="32" selection-end-line="52" selection-end-column="32" />
+          <folding>
+            <element signature="e#40#97#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

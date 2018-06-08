@@ -27,14 +27,14 @@ class CategoryController extends Controller
        ));
    }
 
-   public function viewAction(Request $request)
+   public function viewCategoryAction(Request $request)
    {
        $em = $this->getDoctrine()->getManager();
        $listCategories = $em->getRepository('OCSTBundle:Category')->findAll();
        return $this->render('OCSTBundle:Category:categories.html.twig',array('listCategories'=>$listCategories));
    }
 
-   public function editAction(Request $request, $id)
+   public function editCategoryAction(Request $request, $id)
    {
       $em =  $this->getDoctrine()->getManager();
 
@@ -50,7 +50,7 @@ class CategoryController extends Controller
          'category'=>$category ));
    }
 
-  public function deleteAction(Request $request, $id)
+  public function deleteCategoryAction(Request $request, $id)
   {
       $em = $this->getDoctrine()->getManager();
       $category = $em->getRepository('OCSTBundle:Category')->find($id);

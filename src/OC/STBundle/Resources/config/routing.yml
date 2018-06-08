@@ -54,17 +54,17 @@ ocst_category_add:
 ocst_category_view:
    path: /category/list
    defaults:
-       _controller: OCSTBundle:Category:view
+       _controller: OCSTBundle:Category:viewCategory
 
 ocst_category_edit:
    path: /category/edit/{id}
    defaults:
-       _controller: OCSTBundle:Category:edit
+       _controller: OCSTBundle:Category:editCategory
 
 ocst_category_delete:
   path: /category/delete/{id}
   defaults:
-      _controller: OCSTBundle:Category:delete
+      _controller: OCSTBundle:Category:deleteCategory
 
 
 
