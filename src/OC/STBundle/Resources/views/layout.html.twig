@@ -8,6 +8,7 @@
       {# On charge le CSS de bootstrap depuis le site directement #}
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     {% endblock %}
+
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -16,12 +17,11 @@
       <a class="navbar-brand" href="#">SnowTricks.com</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li class="active"><a href="{{path('ocst_homepage')}}"><span class="glyphicon glyphicon-home"></span> Accueil </a></li>
+      <li><a href="{{path('ocst_homepage')}}"><span class="glyphicon glyphicon-home"></span> Accueil </a></li>
       {% block nav %}
        
- 
-      
-        {% endblock %}  
+
+        {% endblock %}
       
   
     </ul>

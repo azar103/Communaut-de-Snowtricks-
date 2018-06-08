@@ -28,7 +28,7 @@ class Category
      * @Assert\NotBlank()
      */
     private $name;
-     
+
 
     /**
      * Get id

@@ -46,8 +46,25 @@ ocst_trick_category:
    requirements:
          page: \d*    
 
+ocst_category_add:
+   path: /category/add
+   defaults:
+        _controller: OCSTBundle:Category:addCategory
 
+ocst_category_view:
+   path: /category/list
+   defaults:
+       _controller: OCSTBundle:Category:view
 
+ocst_category_edit:
+   path: /category/edit/{id}
+   defaults:
+       _controller: OCSTBundle:Category:edit
+
+ocst_category_delete:
+  path: /category/delete/{id}
+  defaults:
+      _controller: OCSTBundle:Category:delete
 
 
 

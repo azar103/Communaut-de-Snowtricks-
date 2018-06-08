@@ -55,7 +55,7 @@ class TrickController extends Controller
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($trick);
 			$em->flush();
-      $request->getSession()->getFlashBag()->add('info','le trick est bien ajoutée');
+             $request->getSession()->getFlashBag()->add('info','le trick est bien ajoutée');
 			return $this->redirectToRoute('ocst_homepage');
 		}
         

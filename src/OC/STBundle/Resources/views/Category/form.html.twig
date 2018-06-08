@@ -1,0 +1,9 @@
+<div class="conteiner">
+<div class="well">
+{{form_start(form)}}
+    {{form_errors(form)}}
+    {{form_row(form.name, {'label':'nom du categorie'})}}
+    {{ form_widget(form.save,{'attr': {'class': 'btn btn-success'}, 'label': 'modifier'}) }}
+    {{ form_end(form) }}
+</div>
+</div>

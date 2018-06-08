@@ -1,0 +1,12 @@
+{% extends "OCSTBundle:Trick:layout.html.twig" %}
+{% block navbis %}
+    <li><a href="#tricks"><span class="glyphicon glyphicon-sunglasses"></span> Les Tricks</a></li>
+    <li><a href="#addTrick"><span class="glyphicon glyphicon-tree-conifer"></span> Ajouter un Trick ?</a></li>
+    {% if is_granted('ROLE_ADMIN') %}
+        <li><a href="{{path('ocst_category_add')}}"><span class="glyphicon glyphicon-book"></span> Ajouter une categorie</a></li>
+        <li><a href="{{ path('ocst_category_view') }}"><span class="glyphicon glyphicon-book"></span> Lister les categories </a></li>
+    {% endif %}
+{% endblock %}
+{% block body %}
+{{ include('OCSTBundle:Category:form.html.twig') }}
+{% endblock %}

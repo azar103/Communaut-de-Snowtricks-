@@ -20,14 +20,6 @@ class ProfileFormType extends AbstractType
     return 'FOS\UserBundle\Form\Type\ProfileFormType';
     }
 
-    public function getParent(){
-    {     
-    return 'app_user_profile';
-    }
+  
 }
-    // For Symfony 2.x
-   public function getName()
-   {
-    return $this->getBlockPrefix();
-   }
-}
+    
